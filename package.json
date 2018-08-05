@@ -1,0 +1,24 @@
+{
+  "name": "rds-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "sls offline start --node_env development",
+    "deploy": "sls deploy --node_env production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "serverless-offline": "^3.25.6"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0"
+  }
+}

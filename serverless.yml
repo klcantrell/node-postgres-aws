@@ -1,0 +1,50 @@
+
+service: rds-test
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-2
+  timeout: 150
+  vpc:
+    securityGroupIds:
+      - sg-0b1f741d6e2d90bf9
+    subnetIds:
+      - subnet-97d3d0ec 
+      - subnet-b59d53dd
+      - subnet-f86627b5
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ec2:CreateNetworkInterface
+        - ec2:DescribeNetworkInterfaces
+        - ec2:DeleteNetworkInterface
+      Resource: "*"
+  environment:
+    TEST_PGRDS_CONN: ${ssm:testPgrdsConn}
+    NODE_ENV: ${opt:node_env}
+
+plugins:
+  - serverless-offline
+
+package:
+  include:
+    - features/**
+    - models/**
+  exclude:
+    - .env
+
+functions:
+  getTodo:
+    handler: features/read.getTodo
+    events:
+      - http:
+          path: todo
+          method: get
+  createTodo:
+    handler: features/create.createTodo
+    events:
+      - http:
+          path: todo
+          method: post
