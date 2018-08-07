@@ -15,7 +15,14 @@ const config = {
     pool: {
       idle: 50000,
     },
-  }
+  },
+  ssh: {
+    dialect: "postgres",
+    ssl: true,
+    dialectOptions: {
+      ssl: true,
+    },
+  },
 };
 
 module.exports = config[env];
