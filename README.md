@@ -13,9 +13,9 @@
 
 1. Use `ssh` command to connect to EC2 instance
     * `ssh -i [auth certificate] [username]@[remote host]`
-2. Install node onto EC2 instance
-3. Install sequelize-cli, sequelize, and pg.
-4. Quit ssh and `scp` the .sequelizerc file as well as any migration files
+2. Install nvm then node onto EC2 instance
+3. npm install sequelize-cli, sequelize, and pg.
+4. Quit `ssh` and `scp` the .sequelizerc file as well as any migration files
     * `scp -i [auth certificate] [file-path] [username]@[remote host]:[remote-path]`
 5. Make sure the DB config file allows for an SSL connection (see this repo for example)
 6. Run the sequelize command and pass in the db connection string
