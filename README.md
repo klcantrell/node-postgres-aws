@@ -20,3 +20,4 @@
 5. Make sure the DB config file allows for an SSL connection (see this repo for example)
 6. Run the sequelize command and pass in the db connection string
     * `./node_modules/.bin/sequelize db:migrate --url [connection string]`
+    * if needed, use something like cross-env package to set node_env variable
