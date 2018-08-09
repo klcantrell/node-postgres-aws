@@ -32,6 +32,7 @@ package:
   include:
     - features/**
     - db/**
+    - env
 
 functions:
   getTodo:
